@@ -297,7 +297,9 @@ class ViewController: NSViewController {
                 let path: String = result!.path
                 let iphonestandartdofilecopypath = "/var/mobile/iManagerkira/"
                 kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "mkdir", "/var/mobile/iManagerkira/")
-                kiracmlt(sshpass, "-p", "alpine", "scp", "-r", "-P", "2222", path, "root@localhost:\(iphonestandartdofilecopypath)")
+                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "scp", "-r", "-P", "2222", path, "root@localhost:\(iphonestandartdofilecopypath)")
+                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "echo", "copp")
+                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "File Copied", "-m", "copied_to_/var/mobile/iManagerkira/")
               
             }
 
