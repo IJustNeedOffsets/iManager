@@ -55,6 +55,7 @@ brew install libimobiledevice
 Thats it, now you just need to download dmg file from the latest release, open it and drag the .app files in the Applications folder
 ## 2 Short
 Drag the iManagerlaunch.app on your taskbar and launch it form there. It can not show up at launchpad. (Detailed reason is above). 
+Lauching it from iphoneManager.app will not work. When you launch iManagerlaunch.app you will maybe get a pop up on your iphone, just click ok
 ## 2 Long
 Now you should have two new apps (iManagerlaunch.app and iphoneManage.app)
 But you can only open iphoneManager.app from the Launchpad because iManagerlaunch.app is just
