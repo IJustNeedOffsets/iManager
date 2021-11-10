@@ -34,7 +34,7 @@ Because you already have my pre compiled iphoneManage.app in /Applications it wi
 Now type following command to copy sshpass into iphoneManage.app folder: 
 sudo cp -r /usr/local/Cellar/sshpass/1.06/bin/sshpass /Applications/iphoneManage.app/Contents/Resources/
 
-Now drag iManagerlaunch.app from the xcode projects folder into your taskbar. (Its a launch script and will not show up in launchpad)
+Now unzip iManagerlaunch.app.zip in the xcode projects root folder and drag iManagerlaunch.app in your taskbar. (Its a launch script and will not show up in launchpad)
 Done! Click the iManagerlaunch.app in your taskbar and wait for it to launch. When you get an alert/pop up on your iphone, click ok
 
 
