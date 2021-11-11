@@ -65,7 +65,7 @@ Able to connect with anything. For that reason I made the iManager.app, it will 
 So when you want to open iManagerlaunch.app, drag the .app file to your Taskbar
 
 ## Have Fun using this programed. I only tested it with checkra1n jailbreak so don´t blame me when you need use a different port with iproxy.
-# in case you need to use iproxy 2222 22 instead iproxy 2222 44:
+# in case you need to use iproxy 2222 22 instead of iproxy 2222 44:
 go to finder /Applications/iManagerlaunch.app and click show package content. right click the file named iManagerlaunch and say open with text editor,
 look for where it´s says:
 "/usr/local/Cellar/libusbmuxd/2.0.2/bin/iproxy 2222:44 > /dev/null 2>&1 &" 
