@@ -64,6 +64,11 @@ Launching the program from iphoneManager using Launchpad will work, but the prog
 Able to connect with anything. For that reason I made the iManager.app, it will launch the iphoneManage.app with right permission and connect it.
 So when you want to open iManagerlaunch.app, drag the .app file to your Taskbar
 
+## Planned to be added in the future:
+-Installing tweaks system, and package manager after jailbreaking with checkra1n
+-Making a modified version of Sileo and adding an option to install it
+
+
 ## Have Fun using this programed. I only tested it with checkra1n jailbreak so don´t blame me when you need use a different port with iproxy.
 # in case you need to use iproxy 2222 22 instead of iproxy 2222 44:
 go to finder /Applications/iManagerlaunch.app and click show package content. right click the file named iManagerlaunch and say open with text editor,
