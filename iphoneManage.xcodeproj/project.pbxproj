@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F4CC998273C311600951209 /* a0d71451f76dece4b1b175e96df76fbb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F4CC997273C311600951209 /* a0d71451f76dece4b1b175e96df76fbb.jpg */; };
-		4F4CC99F273C315000951209 /* 1021px-IPhone_X_vector.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F4CC99E273C315000951209 /* 1021px-IPhone_X_vector.svg.png */; };
-		4F4CC9A4273C315400951209 /* 15d4903ffd54f3ad76007ffae8722fc5.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F4CC9A3273C315400951209 /* 15d4903ffd54f3ad76007ffae8722fc5.png */; };
 		4F5DF52B27381A7F009909FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5DF52A27381A7F009909FE /* AppDelegate.swift */; };
 		4F5DF52D27381A7F009909FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5DF52C27381A7F009909FE /* ViewController.swift */; };
 		4F5DF52F27381A80009909FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F5DF52E27381A80009909FE /* Assets.xcassets */; };
@@ -36,11 +33,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F4CC997273C311600951209 /* a0d71451f76dece4b1b175e96df76fbb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = a0d71451f76dece4b1b175e96df76fbb.jpg; path = ../../../../../../Downloads/a0d71451f76dece4b1b175e96df76fbb.jpg; sourceTree = "<group>"; };
-		4F4CC99C273C314600951209 /* apple-iphone-12-pro-max-5947688_1280.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = "apple-iphone-12-pro-max-5947688_1280.webp"; path = "../../../../../../Downloads/apple-iphone-12-pro-max-5947688_1280.webp"; sourceTree = "<group>"; };
-		4F4CC99D273C314B00951209 /* iphone-x-4515390_1280.webp */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iphone-x-4515390_1280.webp"; path = "../../../../../../Downloads/iphone-x-4515390_1280.webp"; sourceTree = "<group>"; };
-		4F4CC99E273C315000951209 /* 1021px-IPhone_X_vector.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1021px-IPhone_X_vector.svg.png"; path = "../../../../../../Downloads/1021px-IPhone_X_vector.svg.png"; sourceTree = "<group>"; };
-		4F4CC9A3273C315400951209 /* 15d4903ffd54f3ad76007ffae8722fc5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 15d4903ffd54f3ad76007ffae8722fc5.png; path = ../../../../../../Downloads/15d4903ffd54f3ad76007ffae8722fc5.png; sourceTree = "<group>"; };
 		4F5DF52727381A7F009909FE /* iphoneManage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iphoneManage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5DF52A27381A7F009909FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F5DF52C27381A7F009909FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,11 +101,6 @@
 				4F5DF52E27381A80009909FE /* Assets.xcassets */,
 				4F5DF53027381A80009909FE /* Main.storyboard */,
 				4F5DF53327381A80009909FE /* Info.plist */,
-				4F4CC99E273C315000951209 /* 1021px-IPhone_X_vector.svg.png */,
-				4F4CC99D273C314B00951209 /* iphone-x-4515390_1280.webp */,
-				4F4CC9A3273C315400951209 /* 15d4903ffd54f3ad76007ffae8722fc5.png */,
-				4F4CC99C273C314600951209 /* apple-iphone-12-pro-max-5947688_1280.webp */,
-				4F4CC997273C311600951209 /* a0d71451f76dece4b1b175e96df76fbb.jpg */,
 				4F5DF53427381A80009909FE /* iphoneManage.entitlements */,
 			);
 			path = iphoneManage;
@@ -240,11 +227,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F4CC99F273C315000951209 /* 1021px-IPhone_X_vector.svg.png in Resources */,
 				4F5DF52F27381A80009909FE /* Assets.xcassets in Resources */,
 				4F5DF53227381A80009909FE /* Main.storyboard in Resources */,
-				4F4CC998273C311600951209 /* a0d71451f76dece4b1b175e96df76fbb.jpg in Resources */,
-				4F4CC9A4273C315400951209 /* 15d4903ffd54f3ad76007ffae8722fc5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,40 +28,35 @@ class ViewController: NSViewController {
     @IBOutlet weak var usePass: NSButton!
     @IBOutlet weak var ouutpuxmanage: NSTextField!
     
-   
     @IBOutlet weak var appver: NSTextField!
     @IBOutlet var runcommands: NSTextField!
-    //SSHPass path
-    public let sshpass = "/Applications/iphoneManage.app/Contents/Resources/sshpass"
+    // SSHPass path
+    let sshpassPath = "/Applications/iphoneManage.app/Contents/Resources/sshpass"
+    var sshPass: String = "alpine"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      //the password that will be used as root password to connect using sshpass
-        textFieldDoForRootPs.stringValue = UserDefaults().string(forKey: "rootpassword") ?? "alpine"
-       // Save appversion as string
+        //the password that will be used as root password to connect using sshpass
+        sshPass = UserDefaults().string(forKey: "rootpassword") ?? "alpine"
+        textFieldDoForRootPs.stringValue = sshPass
+        // Save appversion as string
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        let port2222 = "2222"
-        let port44 = "44"
+        _ = "2222"
+        _ = "44"
         appver.stringValue = "version: \(appVersion!)"
+        
         //kiracmlt("./iproxy2") //I TRIED TO MAKE A SCRIPT TO START IPROXY ON LAUNCH UP!! ITS NOT WORKING, RUNNING THE SCRIPT FROM TERMINAL INSTEAD WORKS FINE.
         func ldrestarting() {
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "ldrestart")
-    }
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        
-            
+            kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "ldrestart")
         }
     }
-   // Sending alert to install dep. before using
+    
+    // Sending alert to install dep. before using
     override func viewDidAppear() {
         super.viewDidAppear()
         runcommands.stringValue = "echo"
         
         func depalert() -> Bool {
-
             if (!UserDefaults.standard.bool(forKey: "launched_before")) {
                 UserDefaults.standard.set(true, forKey: "launched_before")
                 return true
@@ -69,61 +64,54 @@ class ViewController: NSViewController {
             return false
         }
         if depalert() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-        func dialogOKCancel(question: String, text: String) -> Bool {
-            let alert = NSAlert()
-            alert.messageText = question
-            alert.informativeText = text
-            alert.alertStyle = .informational
-            alert.addButton(withTitle: "ok")
-            return alert.runModal() == .alertFirstButtonReturn
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                func dialogOKCancel(question: String, text: String) -> Bool {
+                    let alert = NSAlert()
+                    alert.messageText = question
+                    alert.informativeText = text
+                    alert.alertStyle = .informational
+                    alert.addButton(withTitle: "ok")
+                    return alert.runModal() == .alertFirstButtonReturn
+                }
+                
+                _ = dialogOKCancel(question: "IMPORTANT", text: "Click the install dependencies button before you use the program")
+            }
         }
-
-        let answer = dialogOKCancel(question: "IMPORTANT", text: "Click the install dependencies button before you use the program")
-            
-        }
-           
-        }
-        
     }
-
+    
     @IBAction func imagetapped(_ sender: Any) {
         print("the user could be sussy")
     }
     // Text field to type a command
     @IBAction func runcommand(_ sender: NSTextField) {
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", runcommands.stringValue)
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", runcommands.stringValue)
         
     }
     
     // From here the button function will start, i think its self explaining from here
     @IBAction func respringiphone(_ sender: Any) {
-  
-        print(UserDefaults().string(forKey: "rootpassword")!)
+        print(sshPass)
         kiracmlt("ls")
         kiracmlt("cd", "/User/")
         kiracmlt("echo", "lool")
         kiracmlt("ls")
         kiracmlt("chmod", "+x", "sshpass")
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "sbreload")
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "sbreload")
         kiracmlt("pwd")
-
-        
-        
     }
+    
     // Installing iPA/DEB/CLT are using the same fucntion at all:
     @IBAction func installapps(_ sender: Any) {
-   
         let dialog = NSOpenPanel();
-
+        
         dialog.title                   = "Select Application";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
         dialog.allowsMultipleSelection = false;
         dialog.canChooseDirectories = false;
         dialog.allowedFileTypes = ["ipa", "iPA"];
-    
-
+        
+        
         if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
             let result = dialog.url
             let fileName = result!.lastPathComponent
@@ -131,41 +119,38 @@ class ViewController: NSViewController {
             
             if (result != nil) {
                 let path: String = result!.path
-                let iphonestandartdofilecopypath = "/var/mobile/iManagerkira/appinstall/"
-                let lolol = "nothing"
+                _ = "/var/mobile/iManagerkira/appinstall/"
+                _ = "nothing"
                 let aPatha = "/var/mobile/iManagerkira/appinstall/"
-                let simplfier = (sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "mkdir", aPatha)
-                kiracmlt(sshpass, "-p",UserDefaults().string(forKey: "rootpassword")!, "scp", "-P", "2222", path, "root@localhost:/var/mobile/iManagerkira/appinstall/")
+                _ = (sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "mkdir", aPatha)
+                kiracmlt(sshpassPath, "-p",sshPass, "scp", "-P", "2222", path, "root@localhost:/var/mobile/iManagerkira/appinstall/")
                 kiracmlt("echo", "what")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "mv", "/var/mobile/iManagerkira/appinstall/*", "/var/mobile/iManagerkira/appinstall/installapp.ipa")
-               kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "appinst", "\(aPatha)installapp.ipa")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "rm", "-rf", aPatha)
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "echo", "haha")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "iManagerkira", "-m", "Installed_Application:\(fileName)", "-d", "ok_cool")
-                
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "mv", "/var/mobile/iManagerkira/appinstall/*", "/var/mobile/iManagerkira/appinstall/installapp.ipa")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "appinst", "\(aPatha)installapp.ipa")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "rm", "-rf", aPatha)
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "echo", "haha")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "iManagerkira", "-m", "Installed_Application:\(fileName)", "-d", "ok_cool")
             }
-
-        } else {
             
+        } else {
             return
         }
     }
     
     @IBAction func uselesshit(_ sender: Any) {
-       
+        
     }
     @IBAction func installDebain(_ sender: Any) {
         let dialog = NSOpenPanel();
-
+        
         dialog.title                   = "Selecte DEBAIN";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
         dialog.allowsMultipleSelection = false;
         dialog.canChooseDirectories = false;
         dialog.allowedFileTypes = ["deb", "DEB"];
-    
-
+        
         if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
             let result = dialog.url
             let fileName = result!.lastPathComponent
@@ -173,50 +158,46 @@ class ViewController: NSViewController {
             
             if (result != nil) {
                 let path: String = result!.path
-                let iphonestandartdofilecopypath = "/var/mobile/iManagerkira/debinstall/"
-                let lolol = "nothing"
+                _ = "/var/mobile/iManagerkira/debinstall/"
+                _ = "nothing"
                 let aPatha = "/var/mobile/iManagerkira/debinstall/"
-                let simplfier = (sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "mkdir", aPatha)
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "scp", "-P", "2222", path, "root@localhost:/var/mobile/iManagerkira/debinstall/")
+                _ = (sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "mkdir", aPatha)
+                kiracmlt(sshpassPath, "-p", sshPass, "scp", "-P", "2222", path, "root@localhost:/var/mobile/iManagerkira/debinstall/")
                 kiracmlt("echo", "what")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "mv", "/var/mobile/iManagerkira/debinstall/*", "/var/mobile/iManagerkira/debinstall/installdeb.deb")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "dpkg", "-i", "\(aPatha)installdeb.deb")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "rm", "-rf", "\(aPatha)installdeb.deb")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "echo", "haha")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "iManagerkira", "-m", "Installed_DEBAIN:\(fileName)", "-d", "ok_cool")
-                
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "mv", "/var/mobile/iManagerkira/debinstall/*", "/var/mobile/iManagerkira/debinstall/installdeb.deb")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "dpkg", "-i", "\(aPatha)installdeb.deb")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "rm", "-rf", "\(aPatha)installdeb.deb")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "echo", "haha")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "iManagerkira", "-m", "Installed_DEBAIN:\(fileName)", "-d", "ok_cool")
             }
-
         } else {
             
             return
         }
-
     }
-
+    
     @IBAction func iDependencies(_ sender: Any) {
         let appsync = "net.angelxwind.appsyncunified"
         let sbutils = "io.github.awesomebing1.sbutils"
         let ccsupport = "com.opa334.ccsupport"
         let appinst = "com.linusyang.appinst"
-     kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "apt", "install", sbutils)
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "apt", "install", appsync)
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "apt", "install", ccsupport)
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "apt", "install", appinst)
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "ldrestart")
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "apt", "install", sbutils)
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "apt", "install", appsync)
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "apt", "install", ccsupport)
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "apt", "install", appinst)
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "ldrestart")
     }
     @IBAction func InstallCommadnLineTool(_ sender: Any) {
         let dialog = NSOpenPanel();
-
+        
         dialog.title                   = "Select Commandlinetool";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
         dialog.allowsMultipleSelection = false;
         dialog.canChooseDirectories = false;
         dialog.allowedFileTypes = ["", " "];
-    
-
+        
         if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
             let result = dialog.url
             let cmdname = result!.lastPathComponent
@@ -224,25 +205,22 @@ class ViewController: NSViewController {
             
             if (result != nil) {
                 let path: String = result!.path
-                let iphonestandartdofilecopypath = "/var/mobile/iManagerkira/appinstall/"
-                let lolol = "nothing"
+                _ = "/var/mobile/iManagerkira/appinstall/"
+                _ = "nothing"
                 let aPatha = "/var/mobile/iManagerkira/cmdlinetools/"
-                let simplfier = (sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "mkdir", aPatha)
-                kiracmlt(sshpass, "-p",UserDefaults().string(forKey: "rootpassword")!, "scp", "-P", "2222", path, "root@localhost:/var/mobile/iManagerkira/cmdlinetools/")
+                _ = (sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "mkdir", aPatha)
+                kiracmlt(sshpassPath, "-p",sshPass, "scp", "-P", "2222", path, "root@localhost:/var/mobile/iManagerkira/cmdlinetools/")
                 kiracmlt("echo", "what")
-               kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "cp", "\(aPatha)\(cmdname)", "/usr/bin/")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "rm", "-rf", "\(aPatha)\(cmdname)")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "echo", "haha")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "iManagerkira", "-m", "Installed_Command:\(cmdname)", "-d", "ok_cool")
-                
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "cp", "\(aPatha)\(cmdname)", "/usr/bin/")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "rm", "-rf", "\(aPatha)\(cmdname)")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "echo", "haha")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "iManagerkira", "-m", "Installed_Command:\(cmdname)", "-d", "ok_cool")
             }
-
         } else {
-            
             return
         }
-
+        
     }
     @IBAction func uicachea(_ sender: Any) {
         kiracmlt("ls")
@@ -250,7 +228,7 @@ class ViewController: NSViewController {
         kiracmlt("echo", "lool")
         kiracmlt("ls")
         kiracmlt("chmod", "+x", "sshpass")
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "uicache", "-a")
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "uicache", "-a")
         kiracmlt("pwd")
     }
     @IBAction func springboardspring(_ sender: Any) {
@@ -259,7 +237,7 @@ class ViewController: NSViewController {
         kiracmlt("echo", "lool")
         kiracmlt("ls")
         kiracmlt("chmod", "+x", "sshpass")
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "killall", "-9", "SpringBoard")
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "killall", "-9", "SpringBoard")
         kiracmlt("pwd")
     }
     @IBAction func ldrestart(_ sender: Any) {
@@ -268,11 +246,12 @@ class ViewController: NSViewController {
         kiracmlt("echo", "lool")
         kiracmlt("ls")
         kiracmlt("chmod", "+x", "sshpass")
-        kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "ldrestart")
+        kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "ldrestart")
         kiracmlt("pwd")
     }
     @IBAction func saveroot(_ sender: Any) {
-        UserDefaults().set(textFieldDoForRootPs.stringValue, forKey: "rootpassword")
+        sshPass = textFieldDoForRootPs.stringValue
+        UserDefaults().set(sshPass, forKey: "rootpassword")
         print("iManager will use ",textFieldDoForRootPs.stringValue, "as root password on your device")
     }
     
@@ -280,40 +259,35 @@ class ViewController: NSViewController {
         UserDefaults().set(sender.stringValue, forKey: "rootpassword")
         print("iManager will use ",sender.stringValue, "as root password on your device")
         
-          }
+    }
     @IBAction func sendfiles(_ sender: Any) {
         let dialog = NSOpenPanel();
-
+        
         dialog.title                   = "Choose File or Directory";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
         dialog.allowsMultipleSelection = false;
         dialog.canChooseDirectories = true;
-
+        
         if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
             let result = dialog.url
-
+            
             if (result != nil) {
                 let path: String = result!.path
                 let iphonestandartdofilecopypath = "/var/mobile/iManagerkira/"
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "mkdir", "/var/mobile/iManagerkira/")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "scp", "-r", "-P", "2222", path, "root@localhost:\(iphonestandartdofilecopypath)")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "echo", "copp")
-                kiracmlt(sshpass, "-p", UserDefaults().string(forKey: "rootpassword")!, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "File Copied", "-m", "copied_to_/var/mobile/iManagerkira/")
-              
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "mkdir", "/var/mobile/iManagerkira/")
+                kiracmlt(sshpassPath, "-p", sshPass, "scp", "-r", "-P", "2222", path, "root@localhost:\(iphonestandartdofilecopypath)")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "echo", "copp")
+                kiracmlt(sshpassPath, "-p", sshPass, "ssh", "root@localhost", "-p", "2222", "sbalert", "-t", "File Copied", "-m", "copied_to_/var/mobile/iManagerkira/")
+                
             }
-
-        } else {
             
+        } else {
             return
         }
-       
     }
-  
-   
+}
 
-    }
-  
 extension FileManager.SearchPathDirectory {
     func createSubFolder(named: String, withIntermediateDirectories: Bool = false) -> Bool {
         guard let url = FileManager.default.urls(for: self, in: .userDomainMask).first else { return false }
@@ -326,4 +300,5 @@ extension FileManager.SearchPathDirectory {
         }
     }
 }
-    //Hope someone has learned something. Btw im not creating a function for each command because the source code should be easy to read for beginners.
+
+// Hope someone has learned something. Btw im not creating a function for each command because the source code should be easy to read for beginners.
