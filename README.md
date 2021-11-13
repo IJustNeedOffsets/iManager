@@ -37,6 +37,8 @@ sudo cp -r /usr/local/Cellar/sshpass/1.06/bin/sshpass /Applications/iphoneManage
 Now unzip iManagerlaunch.app.zip in the xcode projects root folder and drag iManagerlaunch.app in your taskbar. (Its a launch script and will not show up in launchpad)
 Done! Click the iManagerlaunch.app in your taskbar and wait for it to launch. When you get an alert/pop up on your iphone, click ok
 
+## IMPORTANT
+When you installed the program at the end, you have two applications in your macs App folder. iphoneManage.app will be showed as damaged and cannot be launched directly and start a ssh connection. Thats why i made the second app named iManagerlaunch.app, when you open iManagerlaunch.app it will open iphoneManage.app without the wanring and start the ssh conenction stuff. When you delete iphoneManage.app, iManagerlaunch.app will not be able to start anytihng!! YOU NEED TO KEEP BOTH APPS IN YOUR MACS APPLICATION FOLDER!! as i said below add iManagerlaunch.app to your taskbar or create a shortcut on your desktop because it will not show up in launchpad.
 
 # Installing
 Sorry for all the work with installing it
