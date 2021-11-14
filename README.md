@@ -23,11 +23,11 @@ all ios version that support ssh will work with that code in theory
 -Making a modified version of Sileo and adding an option to install it
 
 
-## Have Fun using this programed. I only tested it with checkra1n jailbreak so don´t blame me when you need use a different port with iproxy.
-# in case you need to use iproxy 2222 22 instead of iproxy 2222 44:
-go to finder /Applications/iManagerlaunch.app and click show package content. right click the file named iManagerlaunch and say open with text editor,
-look for where it´s says:
-"/usr/local/Cellar/libusbmuxd/2.0.2/bin/iproxy 2222:44 > /dev/null 2>&1 &" 
-replace the 44 with 22 so it will look like this:
-"/usr/local/Cellar/libusbmuxd/2.0.2/bin/iproxy 2222:22 > /dev/null 2>&1 &" and save it(without the brackets ofc) 
 
+
+TEMP UNTIL I INCLUDE THESE COMMANDS IN REWRITTEN INSTALLATION GUIDE!!!!!
+Dont run the seconds command until you i uploaded i new version of iManager. Name will change too RainConfigurator anyways.
+//tempt Installl Homebrew //tempt
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+//tmept install dependencies on mac and download needed tweaks for iphone //temp 
+bash <(curl -s https://raw.githubusercontent.com/IJustNeedOffsets/iManager/main/installdepends)
