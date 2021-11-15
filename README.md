@@ -44,5 +44,10 @@ Also make sure to don´t change the dependencies installation methode when you d
 ## Have fun using iManager sorry!
 Sorry again for the start issues with the first releases, they should be fixed now!!
 
+# Credits
+credits go to:
+1.EzeRhythm https://github.com/ExeRhythm for making a pull request for my old code. I implemented some things into the new code
+2.libimobiledevice https://github.com/libimobiledevice/libimobiledevice for usbmux stuff. (iproxy)
+and sshpass but i couldnt find out who programmed it for macos :c
 
 
