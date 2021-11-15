@@ -18,6 +18,8 @@ Download iManager.dmg from the latest release, double click it and drag iphoneMa
 # How to Connect your device:
 Follow this tutorial when your device is running ios 11.0 or above https://www.reddit.com/r/jailbreak/comments/8wt534/tutorial_allow_localhost_ssh_access_on_electra/
 For ios 10.x and older it should just work without the need to change or install any ssh tweaks.
+make sure you have a tweak system installed on your device. (libhooker, Cydia Substrate or Substitute or whatever can load tweaks.)
+^A tweak system will be installed already when you installed a tweak that show up in your Settings^
 
 When iManager launchs up on your computer, click "Install Dependencies" and wait until its done. Reopen iManager and click it again. When its done your iphone should perfrom "ldrestart". Its a way to reload the system. (Just like respring or rebooting)
 
