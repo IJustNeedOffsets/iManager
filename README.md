@@ -16,7 +16,8 @@ Install homebrew https://brew.sh/ (Don´t worry its just a copy paste command)
 Download iManager.dmg from the latest release, double click it and drag iphoneManage.app in the Applications folder.
 
 # How to Connect your device:
-Follow this tutorial when your device is running ios 11.0 or above https://www.reddit.com/r/jailbreak/comments/8wt534/tutorial_allow_localhost_ssh_access_on_electra/
+Follow this tutorial when your device is running ios 11.0 or above || When you are Jailbroken with Taurine: just open Sileo and install openssh. (You don´t need to follow the tutorial.
+https://www.reddit.com/r/jailbreak/comments/8wt534/tutorial_allow_localhost_ssh_access_on_electra/
 For ios 10.x and older it should just work without the need to change or install any ssh tweaks.
 make sure you have a tweak system installed on your device. (libhooker, Cydia Substrate or Substitute or whatever can load tweaks.)
 ^A tweak system will be installed already when you installed a tweak that show up in your Settings^ 
@@ -45,6 +46,7 @@ Also make sure to don´t change the dependencies installation methode when you d
 
 ## Have fun using iManager sorry!
 Sorry again for the start issues with the first releases, they should be fixed now!!
+This is still in beta somehow so it can have many issues. PLEASE REPORT THEM so i can try to fix those asap.
 
 # Credits
 credits go to:
