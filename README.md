@@ -47,7 +47,7 @@ This is still in beta somehow so it can have many issues. PLEASE REPORT THEM so 
 
 # Credits
 credits go to:
-1.EzeRhythm https://github.com/ExeRhythm for making a pull request for my old code. I implemented some things into the new code
+1.ExeRhythm https://github.com/ExeRhythm for making a pull request for my old code. I implemented some things into the new code
 2.libimobiledevice https://github.com/libimobiledevice/libimobiledevice for usbmux stuff. (iproxy)
 and sshpass but i couldnt find out who programmed it for macos :c
 
